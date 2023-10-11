@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "vite-dev": "vite",
+    "vite-rm": "cd public && rm -f $(cat .gitignore)",
     "vite-cp": "mkdir -p public/assets && cp -r dist/assets/* public/assets/ && cd public && ls assets/* > .gitignore",
-    "vite-build": "tsc && vite build && npm run vite-cp",
+    "vite-build": "npm run vite-rm && tsc && vite build && npm run vite-cp",
     "vite-lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
